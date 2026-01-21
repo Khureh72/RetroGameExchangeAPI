@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: Game Exchange API
+  version: '1.0.0'
+  description: |
+    The Game Exchange API allows you to create an account and managed used retro video games
+
+    ### Features of Game Exchange API:
+
+    * Create an account
+    * Change account details
+    * Add games to your account
+    * Update details of your games
+    * Remove a game from your account
+
+servers:
+  - url: http://localhost:6060
+
+tags:
+  - name: Add
+    description: Add games to the exchange list
+  - name: Update
+    description: Update existing games
+  - name: Remove
+    description: Remove games from the exchange list
+
+paths:
+  /games:
+    post:
+      tags:
+        - Add
+      summary: Add a new game to the exchange list
+      requestBody: 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                publisher:
+                  type: string
+                yearPublished:
+                  type: integer
+                system:
+                  type: string
+                condition:
+                  type: string
+                previousOwners:
+                  type: integer
+      responses:
+        '201':
+          description: Game added
+        '400':
+          description:  Incorrect body
+  /games/{gameId}:
+    put:
+      tags:
+        - Update
+      summary: Replaces all properties of a game
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                publisher:
+                  type: string
+                yearPublished:
+                  type: integer
+                system:
+                  type: string
+                condition:
+                  type: string
+                previousOwners:
+                  type: integer
+      responses:
+        '202':
+          description: Game edited
+        '404':
+          description: Game not found
+        '400':
+          description:  Incorrect body
+    patch:
+      tags:
+        - Update
+      summary: Update certain properties of a game
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+            application/json:
+              schema:
+                type: array
+                properties:
+                  name:
+                    type: string
+                  publisher:
+                    type: string
+                  yearPublished:
+                    type: integer
+                  system:
+                    type: string
+                  condition:
+                    type: string
+                  previousOwners:
+                    type: integer
+      responses:
+        '202':
+          description: Game properties updated
+        '404':
+          description: Game not found
+        '400':
+          description:  Incorrect body
+    delete:
+      tags:
+        - Remove
+      summary: Remove a game from your exchange list
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '202':
+          description: Game removed from exchange list
+        '404':
+          description: Game not found
