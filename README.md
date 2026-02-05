@@ -24,4 +24,4 @@ docker compose up
 
 ### Test API
 
-[API-Testing] (https://docs.github.com](http://localhost:8080/api-docs/)
+[API-Testing] (http://localhost:8080/api-docs/)
