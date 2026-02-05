@@ -5,8 +5,8 @@ Follow these steps to get the project up and running.
 ## 1. Clone the Repository
 
 ```bash
-git clone https://gitlab.com/username/project-name.git
-cd project-name
+git clone https://github.com/Khureh72/RetroGameExchangeAPI.git
+cd RetroGameExchangeAPI
 ```
 
 ## 2. Install the dependencies
