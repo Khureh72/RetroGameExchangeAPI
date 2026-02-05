@@ -2,10 +2,14 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "mongodb": "^7.0.0"
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.0.0",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "name": "gameexchange",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "API.js",
   "scripts": {
